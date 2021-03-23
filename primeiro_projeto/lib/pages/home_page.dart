@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:primeiro_projeto/components/buttons/blue_button.dart';
 import 'package:primeiro_projeto/pages/hello_view.dart';
 import 'package:primeiro_projeto/pages/page_01.dart';
@@ -124,11 +125,23 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               BlueButton("Snack", onPressed: () => _onClickSnack(context)),
               BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
+              BlueButton("Toast", onPressed: _onClickToast),
             ],
           ),
         ],
       );
     });
+  }
+
+  void _onClickToast() async {
+    Fluttertoast.showToast(
+        msg: "Teste Toast",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 
   void _onClickNavigator(BuildContext context, Widget page) async {

@@ -1,11 +1,26 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:primeiro_projeto/components/buttons/blue_button.dart';
 
 class Page01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page 01"),
+        centerTitle: true,
+      ),
+      body: _body(context),
+    );
   }
 
+  _body(BuildContext context) {
+    return Center(
+      child: BlueButton(
+        "Voltar",
+        onPressed: () => _onClickVoltar(context),
+      ),
+    );
+  }
+
+  _onClickVoltar(context) => Navigator.pop(context);
 }
